@@ -1,11 +1,11 @@
 # EXPERIMENT--03-SIMULATION-OF-PUSHBUTTON-AND-LED INTERFACE WITH ARM CONTROLLER AND PROTEUS 
-## Aim: To Interface a Digital output (LED) and Digital input (Pushbutton) to ARM development board , and simulate it in Proteus 
-## Components required: STM32 CUBE IDE, Proteus 8 simulator .
+## Aim: To Interface a Digital output (LED) and Digital input (Pushbutton) to an ARM development board, and simulate it in Proteus 
+## Components required: STM32 CUBE IDE, Proteus 8 simulator.
 ## Theory 
-The full form of an ARM is an advanced reduced instruction set computer (RISC) machine, and it is a 32-bit processor architecture expanded by ARM holdings. The applications of an ARM processor include several microcontrollers as well as processors. The architecture of an ARM processor was licensed by many corporations for designing ARM processor-based SoC products and CPUs. This allows the corporations to manufacture their products using ARM architecture. Likewise, all main semiconductor companies will make ARM-based SOCs such as Samsung, Atmel, TI etc.
+The full form of an ARM is an advanced reduced instruction set computer (RISC) machine, and it is a 32-bit processor architecture expanded by ARM holdings. The applications of an ARM processor include several microcontrollers as well as processors. The architecture of an ARM processor was licensed by many corporations for designing ARM processor-based SoC products and CPUs. This allows corporations to manufacture their products using ARM architecture. Likewise, all main semiconductor companies will make ARM-based SOCs such as Samsung, Atmel, TI, etc.
 
 What is an ARM7 Processor?
-ARM7 processor is commonly used in embedded system applications. Also, it is a balance among classic as well as new-Cortex sequence. This processor is tremendous in finding the resources existing on the internet with excellence documentation offered by NXP Semiconductors. It suits completely for an apprentice to obtain in detail hardware & software design implementation.
+ARM7 processor is commonly used in embedded system applications. Also, it is a balance among classic as well as new-Cortex sequences. This processor is tremendous in finding the resources existing on the internet with excellent documentation offered by NXP Semiconductors. It suits completely for an apprentice to obtain in-detail hardware & software design implementation.
 
   STM32F401xB STM32F401xC ARM® Cortex®-M4 32b MCU+FPU, 105 DMIPS, 256KB Flash/64KB RAM, 11 TIMs, 1 ADC, 11 comm.
 interfaces Datasheet - production data Features
@@ -71,21 +71,54 @@ We are now at the last part of step by step guide on how to simulate STM32 proje
 
 
 ## STM 32 CUBE PROGRAM :
+```
+Developed by: Jeeva Abishake
+Reference number: 212221240018
+```
+#include "main.h"
+#include"stdio.h"
+#include"stdbool.h"
+bool pm;
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+int main(void)
+{
+  HAL_Init();
+  SystemClock_Config();
+  MX_GPIO_Init();
+	  while (1)
+	    {
+	     pm= HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_1);
+	      if(pm==0)
+              {
+	  	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
+	  	HAL_Delay(1000);
+	  	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
+	  	HAL_Delay(1000);
+	       }
+	      else
+	       {
+	  	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
+	        }
+	     }
+  }
 
 
 
 
-## Output screen shots of proteus  :
+## Output screenshots of proteus  :
+### LED ON
+![on](https://github.com/JEEVAABI/EXPERIMENT--03-SIMULATION-OF-PUSHBUTTON-AND-LED-WITH-PROTEUS-/assets/93427098/1cf8a1a2-d4f8-40b2-bc7d-c69f1737d0e0)
 
+### LED OFF
+![off](https://github.com/JEEVAABI/EXPERIMENT--03-SIMULATION-OF-PUSHBUTTON-AND-LED-WITH-PROTEUS-/assets/93427098/632986fc-1f2a-4620-97f9-04ee4d6d36ed)
 
+## Proteus layout(Add pdf screenshot of circuit here)
+ ![cir](https://github.com/JEEVAABI/EXPERIMENT--03-SIMULATION-OF-PUSHBUTTON-AND-LED-WITH-PROTEUS-/assets/93427098/b04d9a1f-ba93-4d8d-860f-6440a5facdc5)
 
-
-## Proteus layout(Add pdf screen shot of circuit here)
- 
- 
  
  
 ## Result :
-Interfacing a digital output and digital input  with ARM microcontroller are simulated in proteus and the results are verified.
+Interfacing a digital output and digital input  with an ARM microcontroller is simulated in proteus and the results are verified.
 
 
