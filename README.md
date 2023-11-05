@@ -75,6 +75,7 @@ We are now at the last part of step by step guide on how to simulate STM32 proje
 Developed by: Jeeva Abishake
 Reference number: 212221240018
 ```
+```
 #include "main.h"
 #include"stdio.h"
 #include"stdbool.h"
@@ -105,7 +106,7 @@ int main(void)
 
 
 
-
+```
 ## Output screenshots of proteus  :
 ### LED ON
 ![on](https://github.com/JEEVAABI/EXPERIMENT--03-SIMULATION-OF-PUSHBUTTON-AND-LED-WITH-PROTEUS-/assets/93427098/1cf8a1a2-d4f8-40b2-bc7d-c69f1737d0e0)
